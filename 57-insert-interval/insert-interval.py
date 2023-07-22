@@ -12,7 +12,7 @@ class Solution:
                 out.append(itv)
                 continue
             
-            if curr is not None and itv[0] <= curr[0] <= itv[1] or itv[0] <= curr[1] <= itv[1]:
+            if itv[0] <= curr[0] <= itv[1] or itv[0] <= curr[1] <= itv[1]:
                 curr[0] = min(itv[0], curr[0])
                 curr[1] = max(itv[1], curr[1])
             
