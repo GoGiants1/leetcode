@@ -3,7 +3,6 @@ class Solution:
 
         def findPeak(lo: int, hi: int):
             mid = (lo + hi) // 2
-            print(lo, hi, mid)
             if lo < hi:
                 if arr[mid - 1] < arr[mid] > arr[mid + 1]:
                     return mid
