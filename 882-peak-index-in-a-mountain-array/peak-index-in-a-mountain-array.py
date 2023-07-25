@@ -6,11 +6,12 @@ class Solution:
             if lo < hi:
                 if arr[mid - 1] < arr[mid] > arr[mid + 1]:
                     return mid
-                l = findPeak(lo, mid)
-                if l:
-                    return l
+                if arr[mid - 1] > arr[mid]:
+                    hi = mid
                 else:
-                    return findPeak(mid + 1, hi)
+                    lo = mid + 1
+
+                return findPeak(lo, hi)
             else:
                 return None
         
