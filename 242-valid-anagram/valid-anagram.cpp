@@ -7,17 +7,16 @@ public:
         if (n != m) {
             return false;
         }
-        map<char, int> sm;
-        map<char, int> tm;
+        map<char, int> mp;
 
         // O(m)
         for (int i = 0; i < m; ++i){
-            ++sm[s[i]];
-            ++tm[t[i]];
+            ++mp[s[i]];
+            --mp[t[i]];
         }
         // O(k), k is number of keys in each map
-        for (auto a: sm){
-            if (a.second != tm[a.first]){
+        for (auto a: mp){
+            if (a.second != 0){
                 return false;
             }
         }
