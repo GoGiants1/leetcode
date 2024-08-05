@@ -5,21 +5,21 @@ char* reverseVowels(char* s) {
 
     int n = strlen(s);
 
-    char vowels[n];
     int pos[n];
     int cur = 0;
 
     for (int i = 0; i < n; ++i) {
         if (s[i] == 'a' || s[i] == 'e' || s[i] == 'i' || s[i] == 'o' || s[i] == 'u' || s[i] == 'A' || s[i] == 'E' || s[i] == 'I' || s[i] == 'O' || s[i] == 'U') {
-            vowels[cur] = s[i];
             pos[cur] = i;
             cur++;
         }
     }
-    int loop_count = cur;
+    int loop_count = cur / 2;
 
     for (int i = 0; i < loop_count; i++) {
-        s[pos[i]] = vowels[--cur];
+        char tmp = s[pos[i]];
+        s[pos[i]] = s[pos[--cur]];
+        s[pos[cur]] = tmp;
     }
 
     return s;
